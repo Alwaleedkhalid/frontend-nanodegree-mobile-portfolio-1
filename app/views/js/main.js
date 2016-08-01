@@ -449,14 +449,27 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
 
-  function changePizzaSizes(size) {
-    var dx = determineDx(document.getElementsByClassName("randomPizzaContainer"), size);
-    var newwidth = (document.getElementsByClassName("randomPizzaContainer").offsetWidth + dx) + 'px';
+  //function changePizzaSizes(size) {
 
-    var container = document.getElementsByClassName('randomPizzaContainer');
+  //   var container = document.querySelectorAll(".randomPizzaContainer");
+  //   var dx = determineDx(container[i], size);
+  //   var newWidth = (container[i].offsetWidth + dx) + 'px';
 
-    for (var i = 0; i < container.length; i++) {
-      container[i].style.width = newwidth;
+
+  //   for (var i = 0; i < container.length; i++) {
+  //     container[i].style.width = newWidth;
+
+  //   }
+  // }
+
+  // changePizzaSizes(size);
+
+   function changePizzaSizes(size) {
+
+    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
+      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
+      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
   }
 
@@ -537,7 +550,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
   var movingPizzas = document.getElementById('movingPizzas1');
 
-  for (var i = 0; i < 24; i++) {
+  for (var i = 0; i < 48; i++) {
     //declaring elem in the loop init will prevent it from being created every time the loop is called
     elem = document.createElement('img');
     elem.className = 'mover';
