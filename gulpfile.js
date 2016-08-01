@@ -111,8 +111,12 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch('app/css/**/*.css','app/styles/**/*.css','app/views/css/**/*.css',  ['styles']);
-  gulp.watch('app/scripts/**/*.js', 'app/js/**/*.js', 'app/views/js/**/*.js', ['scripts']);
+  gulp.watch('app/css/**/*.css',  ['styles']);
+  gulp.watch('app/styles/**/*.css', ['styles']);
+  gulp.watch('app/views/css/**/*.css', ['styles']);
+  gulp.watch('app/scripts/**/*.js',['scripts']);
+  gulp.watch('app/js/**/*.js', ['scripts']);
+  gulp.watch('app/views/js/**/*.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
